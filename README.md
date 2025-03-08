@@ -1,14 +1,13 @@
 # AWS End-to-End Web Application with 7 Services
 
-Setting Up the Codebase 
-To begin, you'll need to set up a codebase for the Wild Rides application. This involves creating a repository to manage version control and to store the project files. 
-1.	Create a New GitHub Repository: Start by creating a new repository on GitHub named "wildrides-site." This repository will serve as the primary source for your application code, making it easier to track changes and collaborate if needed. 
-2.	Clone the Repository Locally: After setting up the repository, clone it to your local machine to start editing and adding files directly. 
-3.	Set Up Directory Structure: Organize the code with a clear directory structure, such as separating the frontend, backend, and configuration files. This approach ensures that all code files and assets are organized logically, which is particularly helpful as the codebase grows. 
+We're creating a web application for a unicorn ride-sharing service called Wild Rydes. The app uses IAM, Amplify, Cognito, Lambda, API Gateway and DynamoDB, with code stored in GitHub and incorporated into a CI/CD pipeline with Amplify.
+
+The app will let you create an account and log in, then request a ride by clicking on a map (powered by ArcGIS). The code can also be extended to build out more functionality.
+
 Hosting the Frontend with AWS Amplify 
 Hosting the frontend of a serverless application with AWS Amplify is straightforward. AWS Amplify is a development platform that helps to host and deploy full-stack web applications with integrated CI/CD capabilities. 
 1.	Access the Amplify Console: In the AWS Management Console, navigate to the Amplify service. Click "Get started" and select "Host web app." 
-2.	Link GitHub Repository: Choose GitHub as the source provider, authenticate with your account, and select your "wild-rides-site" repository. This connection enables Amplify to monitor the repository for changes, automatically triggering new deployments. 
+2.	Link GitHub Repository: Choose GitHub as the source provider, authenticate with your account, and select your "wildrides-site-main" repository. This connection enables Amplify to monitor the repository for changes, automatically triggering new deployments. 
 3.	Configure Build Settings: Review the build settings. By default, Amplify will build and deploy every change made to the main branch, ensuring the live application is always up-to-date. 
 4.	Specify Application Name: Name your Amplify app, such as "wild-rides-2023." After clicking "Create app," Amplify will set up the infrastructure and initiate the first deployment. 
  
@@ -60,22 +59,7 @@ Once testing is complete, it’s important to delete resources to prevent additi
 1.	Delete Amplify and Cognito Resources: Remove the Amplify app and Cognito user pool from the AWS console. 
 2.	Remove Lambda Function and DynamoDB Table: Navigate to AWS Lambda and DynamoDB to delete the function and table. 
 3.	Delete API Gateway: Remove the API from API Gateway. 
-4.	Optional GitHub Cleanup: If the repository is no longer needed, you can delete it from GitHub to prevent unintended access to the code. 
-Additional Considerations and Enhancements 
-Unicorn Availability Tracking: Rather than hardcoding available unicorns, store unicorn details in a dedicated DynamoDB table. This dynamic approach enables updates to the unicorn fleet and ensures optimal ride allocation. 
-Ride History and Analytics: Add data fields in DynamoDB to store ride history, pickup/drop-off locations, and timestamps. This data can be used to display user history and offer insights for analytics. 
-User Interface Enhancements: A well-designed UI improves engagement. Consider adding features like ride status updates, visual cues, and real-time notifications for a more interactive experience. 
-Scaling and Resilience: Implement load balancing, caching, and redundancy to prepare for increased traffic. AWS services like Elastic Load Balancing and CloudFront can optimize scalability. 
-Monitoring and Observability: Leverage AWS CloudWatch for monitoring performance metrics and AWS X-Ray for tracing request flows across services. These tools help troubleshoot issues and provide insights into performance bottlenecks. 
-Continuous Integration and Deployment: Set up CI/CD pipelines with AWS CodePipeline, GitHub Actions, or similar tools to automate code testing and deployment. 
-Cost Optimization: Monitor usage with AWS Cost Explorer and set budget alerts. Consider reserved instances, right-sizing resources, or implementing cost alarms to manage expenses. 
- 
- 
- 
- 
-  
-Conclusion 
-This tutorial has provided a comprehensive guide to building a serverless web application using AWS services. By combining Amplify, Cognito, Lambda, DynamoDB, and API Gateway, you've deployed a fully functional and scalable "Wild Rides" application with minimal infrastructure management. Leveraging the AWS ecosystem offers flexibility to develop increasingly complex applications with ease. These serverless principles and tools offer a strong foundation for future projects, from ecommerce platforms to real-time data applications. 
+4.	Optional GitHub Cleanup: If the repository is no longer needed, you can delete it from GitHub to prevent unintended access to the code.  
  
  
 
